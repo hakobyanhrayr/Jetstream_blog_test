@@ -36,9 +36,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="
-{{--                    {{route('post.index')}}--}}
-                    " class="nav-link">
+                    <a href="{{route('post.index')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Posts</p>
                     </a>
@@ -52,33 +50,25 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="
-{{--                    {{route('tag.index')}}--}}
-                    " class="nav-link">
+                    <a href="{{route('tag.index')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Tags</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="
-{{--                    {{route('user.index')}}--}}
-                    " class="nav-link">
+                    <a href="{{route('user.index')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Users</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="
-{{--                    {{route('role.index')}}--}}
-                    " class="nav-link">
+                    <a href="{{route('role.index')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Roles</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="
-{{--                    {{route('permission.index')}}--}}
-                    " class="nav-link">
+                    <a href="{{route('permission.index')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Permissions</p>
                     </a>
