@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    private const TABLE = 'post_categories';
+    private const TABLE = 'category_posts';
     /**
      * Run the migrations.
      *

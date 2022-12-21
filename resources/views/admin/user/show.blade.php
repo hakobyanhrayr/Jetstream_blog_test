@@ -68,9 +68,9 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>
-{{--                                                @foreach($user->roles as $role)--}}
-{{--                                                    <a href="#">{{ $role->name }}</a> ,--}}
-{{--                                                @endforeach--}}
+                                                @foreach($user->roles as $role)
+                                                    <a href="#">{{ $role->name }}</a> ,
+                                                @endforeach
                                             </td>
                                             <td>{{ $user->status ? 'Active' : 'Deactivate' }}</td>
                                             <td style="display: flex;justify-content: space-around;align-items: center">

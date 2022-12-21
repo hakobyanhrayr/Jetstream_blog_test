@@ -9,9 +9,9 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ route('home') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+{{--                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>--}}
+{{--                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>--}}
+{{--                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>--}}
                 <li class="nav-item">
                     @if(Auth::guest())
                         <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('login')}}">Login</a>
@@ -25,6 +25,19 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
+                    @endif
+                </li>
+
+                <li class="nav-item">
+                    @if(Auth::guest())
+                    @else
+                        <a class="nav-link px-lg-3 py-3 py-lg-4">Name :  {{ Auth::user()->name }}</a>
+                    @endif
+                </li>
+                <li class="nav-item">
+                    @if(Auth::guest())
+                        <a href="{{ route('register') }}"class="nav-link px-lg-3 py-3 py-lg-4">Register</a>
+                    @else
                     @endif
                 </li>
             </ul>

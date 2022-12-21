@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\user\Post;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -11,10 +10,11 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(): Factory|View|Application
+    /**
+     * @return Application|Factory|View
+     */
+    public function index(): Application|Factory|View
     {
-        $posts = Post::where('status', 1)->paginate(2);
-
-        return view('user.blog', compact('posts'));
+        return view('admin/home');
     }
 }

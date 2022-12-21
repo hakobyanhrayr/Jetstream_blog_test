@@ -28,21 +28,21 @@ class AdminController extends Controller
     /**
      * The guard implementation.
      *
-     * @var \Illuminate\Contracts\Auth\StatefulGuard
+     * @var StatefulGuard
      */
     protected $guard;
 
     /**
      * Create a new controller instance.
      *
-     * @param \Illuminate\Contracts\Auth\StatefulGuard $guard
+     * @param StatefulGuard $guard
      * @return void
      */
     public function __construct(StatefulGuard $guard)
     {
         $this->guard = $guard;
     }
-    public function LoginFrom()
+    public function LoginFrom(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         return view('auth.login',['guard'=>'admin']);
     }
@@ -50,8 +50,8 @@ class AdminController extends Controller
     /**
      * Show the login view.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Laravel\Fortify\Contracts\LoginViewResponse
+     * @param Request $request
+     * @return LoginViewResponse
      */
     public function create(Request $request): LoginViewResponse
     {
@@ -61,10 +61,10 @@ class AdminController extends Controller
     /**
      * Attempt to authenticate a new session.
      *
-     * @param \Laravel\Fortify\Http\Requests\LoginRequest $request
+     * @param LoginRequest $request
      * @return mixed
      */
-    public function store(LoginRequest $request)
+    public function store(LoginRequest $request): mixed
     {
         return $this->loginPipeline($request)->then(function ($request) {
             return app(LoginResponse::class);
@@ -74,10 +74,10 @@ class AdminController extends Controller
     /**
      * Get the authentication pipeline instance.
      *
-     * @param \Laravel\Fortify\Http\Requests\LoginRequest $request
+     * @param LoginRequest $request
      * @return \Illuminate\Pipeline\Pipeline
      */
-    protected function loginPipeline(LoginRequest $request)
+    protected function loginPipeline(LoginRequest $request): \Illuminate\Pipeline\Pipeline
     {
         if (Fortify::$authenticateThroughCallback) {
             return (new Pipeline(app()))->send($request)->through(array_filter(
@@ -102,8 +102,8 @@ class AdminController extends Controller
     /**
      * Destroy an authenticated session.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Laravel\Fortify\Contracts\LogoutResponse
+     * @param Request $request
+     * @return LogoutResponse
      */
     public function destroy(Request $request): LogoutResponse
     {
